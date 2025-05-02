@@ -1,5 +1,5 @@
-##3.Train linear regression model with sample data.
-###the output of my initial linear function test
+## 3.Train linear regression model with sample data.
+### the output of my initial linear function test
 correct answer: 130.0
 estimated: 745.0
 ******
@@ -47,7 +47,7 @@ estimated: 870.0
 ******
 
 
-###3.g The final trained results
+### 3.g The final trained results
 a = 0.5642019
 b = 92.85766
 cost = 1117.6555
@@ -68,8 +68,8 @@ However, I don't think this program works well because the convergence values of
 
 
 
-##5.Predict something with Linear Regression
-###5.i My training results
+## 5.Predict something with Linear Regression
+### 5.i My training results
 a = 0.2869446
 b = -0.98557657
 (actual answer is a = 0.207, b = -1.0548)
