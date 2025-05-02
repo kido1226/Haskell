@@ -25,7 +25,6 @@ cabal.project.local
 cabal.project.local~
 .HTF/
 .ghc.environment.*
-exec.cabal
 
 ### VisualStudioCode ###
 .vscode/*
@@ -49,8 +48,4 @@ exec.cabal
 
 .DS_Store
 
-data/
-
 # End of https://www.toptal.com/developers/gitignore/api/haskell,visualstudiocode
-.stack-work/
-*~
