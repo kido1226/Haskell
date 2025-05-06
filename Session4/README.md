@@ -1,7 +1,3 @@
-stack run session4-perseptron-and-gate
-stack run session4-mlpxor
-stack run session4-step-mlpxor
-
 ## A Simple Perceptron
 ### My results
 learning rate = 0.1  
