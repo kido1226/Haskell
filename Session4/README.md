@@ -2,8 +2,8 @@ stack run session4-perseptron-and-gate
 stack run session4-mlpxor
 stack run session4-step-mlpxor
 
-### A Simple Perceptron
-## My results
+## A Simple Perceptron
+### My results
 learning rate = 0.1  
 epoch = 150  
 $ stack run session4-perseptron-and-gate  
@@ -12,12 +12,12 @@ initial bias 0.97732216
 initial error[0.0,-1.0,-1.0,-1.0]  
 final weights [0.18967327,0.21364456]  
 final bias -0.22267789  
-final error[0.0,0.0,0.0,0.0]  
+final error[0.0,0.0,0.0,0.0]    
 
 
 
-### A Multi-layer Perceptron
-## 2.b My explanation about the code
+## A Multi-layer Perceptron
+### 2.b My explanation about the code
 
 Define the type of MLPSpec and MLP.
 ```haskell:MlpXor.hs
