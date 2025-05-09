@@ -284,6 +284,7 @@ Learning Curve:
 
 ### analysis
 The error can be expanded as follows  
-$ \Delta w_i = - \alpha\frac{\partial MSE}{\partial w_i} $  
-$ \Delta w_i = - \alpha\frac{2}{m} (x_i-y_i) f'(\sum w_ix_i) x_i $  
-where $\alpha$ is a learning rate, $f(x)$ is an activation function.
+![expression1](imgs/ex1.png)  
+![expression2](imgs/ex2.png)  
+where $\alpha$ is a learning rate and $f(x)$ is an activation function.
+Since the rate of change in weights is determined by the learning rate and the derivative of the activation function, the learning rate must be changed to match the activation function.
