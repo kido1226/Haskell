@@ -283,9 +283,9 @@ Learning Curve:
 ![Learning Curve of step](stepMlpXor/step-xor.png)
 
 ### analysis
-The error can be expanded as follows
+The error can be expanded as follows  
 $$
  \Delta w_i = - \alpha \frac{\partial MSE}{\partial w_i} 
  \Delta w_i = - \alpha \frac{2}{m} (x_i-y_i) f'(\sum w_ix_i) x_i
-$$
+$$  
 where $\alpha$ is a learning rate, $f(x)$ is an activation function.
