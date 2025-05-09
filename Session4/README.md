@@ -218,7 +218,7 @@ Final Model:
 1, 0 => Tensor Float []  1.0000   
 1, 1 => Tensor Float []  1.1921e-7  
   
-Learning Curve:
+Learning Curve:  
 ![Learning Curve of tanh](mlpXor/tanh-xor.png)  
 
 
@@ -249,7 +249,7 @@ Final Model:
 1, 0 => Tensor Float []  1.0000   
 1, 1 => Tensor Float []  6.2585e-6  
   
-Learning Curve:
+Learning Curve:  
 ![Learning Curve of sigmoid](sigmoidMlpXor/sigmoid-xor.png)
 
 ### using step function(rate = 0.1):  
@@ -279,8 +279,10 @@ Final Model:
 1, 0 => Tensor Float []  0.6740   
 1, 1 => Tensor Float []  0.6740  
   
-Learning Curve:
+Learning Curve:  
 ![Learning Curve of step](stepMlpXor/step-xor.png)
 
 ### analysis
-$ \Delta w_i = - \alpha\frac{\partial MSE}{\partial w_i}
+$$
+ \Delta w_i = - \alpha\frac{\partial MSE}{\partial w_i} 
+$$
