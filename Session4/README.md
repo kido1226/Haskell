@@ -191,7 +191,7 @@ runStep ::
   
   
 ## 2.d The impact of different activation functions
-### using tanh(rate = 0.1):  
+### The result of using tanh(rate = 0.1):  
 Iteration: 100 | Loss: Tensor Float []  0.4426   
 Iteration: 200 | Loss: Tensor Float []  0.2995   
 Iteration: 300 | Loss: Tensor Float []  0.3243   
@@ -252,7 +252,7 @@ Final Model:
 Learning Curve:  
 ![Learning Curve of sigmoid](sigmoidMlpXor/sigmoid-xor.png)
 
-### using step function(rate = 0.1):  
+### The result of using step function(rate = 0.1):  
 Iteration: 100 | Loss: Tensor Float []  0.7342   
 Iteration: 200 | Loss: Tensor Float []  0.3292   
 Iteration: 300 | Loss: Tensor Float []  0.1047   
