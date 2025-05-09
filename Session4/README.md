@@ -283,4 +283,4 @@ Learning Curve:
 ![Learning Curve of step](stepMlpXor/step-xor.png)
 
 ### analysis
-$$ \Delta w_i = - \alpha\frac{\partial MSE}{\partial w_i}
+$ \Delta w_i = - \alpha\frac{\partial MSE}{\partial w_i}
