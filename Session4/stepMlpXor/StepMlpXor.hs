@@ -6,6 +6,7 @@ import Control.Monad (when)
 import Data.List (foldl', intersperse, scanl')
 import GHC.Generics
 import Torch
+import ML.Exp.Chart   (drawLearningCurve)
 
 --------------------------------------------------------------------------------
 -- MLP
@@ -51,7 +52,7 @@ model :: MLP -> Tensor -> Tensor
 model params t = mlp params t
 
 step' :: Tensor -> Tensor
-step' net = toDType Float $ ge net 0
+step' x = threshold 0.0 1.0 (0.0 - (threshold 0.0 0.0 x))
 
 main :: IO ()
 main = do
@@ -63,18 +64,21 @@ main = do
           nonlinearitySpec = step'
         }
 
-  trained <- foldLoop init numIters $ \state i -> do
+  -- foldLoop :: a -> Int -> (a -> Int -> IO a) -> IO a
+  (trained, losses) <- foldLoop (init, []) numIters $ \(state,losses) i -> do
     -- generate learning data
     input <- randIO' [batchSize, 2] >>= return . (toDType Float) . (gt 0.5)
     -- calculate the MSE
     let (y, y') = (tensorXOR input, squeezeAll $ model state input)
         loss = mseLoss y y'
+        loss' = (asValue loss :: Float)
     when (i `mod` 100 == 0) $ do
       putStrLn $ "Iteration: " ++ show i ++ " | Loss: " ++ show loss
-    -- update weights
+    -- update weights and bias
     (newState, _) <- runStep state optimizer loss 1e-1
-    return newState
+    return (newState, (loss' : losses))
 
+  drawLearningCurve "stepMlpXor/step-xor.png" "Learning Curve" [("",reverse losses)]
   putStrLn "Final Model:"
   putStrLn $ "0, 0 => " ++ (show $ squeezeAll $ model trained (asTensor [0, 0 :: Float]))
   putStrLn $ "0, 1 => " ++ (show $ squeezeAll $ model trained (asTensor [0, 1 :: Float]))

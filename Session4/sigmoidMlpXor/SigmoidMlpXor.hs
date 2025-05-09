@@ -58,7 +58,7 @@ main = do
     sample $
       MLPSpec
         { feature_counts = [2, 2, 1],
-          nonlinearitySpec = Torch.tanh
+          nonlinearitySpec = sigmoid
         }
 
   -- foldLoop :: a -> Int -> (a -> Int -> IO a) -> IO a
@@ -72,10 +72,10 @@ main = do
     when (i `mod` 100 == 0) $ do
       putStrLn $ "Iteration: " ++ show i ++ " | Loss: " ++ show loss
     -- update weights and bias
-    (newState, _) <- runStep state optimizer loss 1e-1
+    (newState, _) <- runStep state optimizer loss 3e-1
     return (newState, (loss' : losses))
 
-  drawLearningCurve "mlpXor/tanh-xor.png" "Learning Curve" [("",reverse losses)]
+  drawLearningCurve "sigmoidMlpXor/sigmoid-xor.png" "Learning Curve" [("",reverse losses)]
   putStrLn "Final Model:"
   putStrLn $ "0, 0 => " ++ (show $ squeezeAll $ model trained (asTensor [0, 0 :: Float]))
   putStrLn $ "0, 1 => " ++ (show $ squeezeAll $ model trained (asTensor [0, 1 :: Float]))

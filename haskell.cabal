@@ -90,6 +90,22 @@ executable session4-perseptron-and-gate
     , nlp-tools
   default-language: Haskell2010
 
+executable session4-sigmoid-mlpxor
+  main-is: SigmoidMlpXor.hs
+  other-modules:
+      Paths_haskell
+  autogen-modules:
+      Paths_haskell
+  hs-source-dirs:
+      Session4/sigmoidMlpXor
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , hasktorch
+    , hasktorch-tools
+    , nlp-tools
+  default-language: Haskell2010
+
 executable session4-step-mlpxor
   main-is: StepMlpXor.hs
   other-modules:

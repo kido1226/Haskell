@@ -83,6 +83,14 @@ executables:
     - hasktorch-tools
     - nlp-tools
 
+  session4-sigmoid-mlpxor:
+    main: SigmoidMlpXor.hs
+    source-dirs: Session4/sigmoidMlpXor
+    dependencies:
+    - hasktorch
+    - hasktorch-tools
+    - nlp-tools
+
 tests:
   haskell-test:
     main:                Spec.hs
