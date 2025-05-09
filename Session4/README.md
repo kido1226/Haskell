@@ -195,28 +195,28 @@ runStep ::
 Iteration: 100 | Loss: Tensor Float []  0.4426   
 Iteration: 200 | Loss: Tensor Float []  0.2995   
 Iteration: 300 | Loss: Tensor Float []  0.3243   
-Iteration: 400 | Loss: Tensor Float []  6.3940e-2
-Iteration: 500 | Loss: Tensor Float []  2.6677e-2
+Iteration: 400 | Loss: Tensor Float []  6.3940e-2  
+Iteration: 500 | Loss: Tensor Float []  2.6677e-2  
 Iteration: 600 | Loss: Tensor Float []  0.3094   
-Iteration: 700 | Loss: Tensor Float []  5.0927e-2
-Iteration: 800 | Loss: Tensor Float []  3.0997e-4
-Iteration: 900 | Loss: Tensor Float []  2.9338e-5
-Iteration: 1000 | Loss: Tensor Float []  1.0861e-5
-Iteration: 1100 | Loss: Tensor Float []  1.3003e-7
-Iteration: 1200 | Loss: Tensor Float []  4.5230e-10
-Iteration: 1300 | Loss: Tensor Float []  1.4211e-12
-Iteration: 1400 | Loss: Tensor Float []  1.2381e-12
-Iteration: 1500 | Loss: Tensor Float []  6.3949e-14
-Iteration: 1600 | Loss: Tensor Float []  1.7764e-14
-Iteration: 1700 | Loss: Tensor Float []  3.1974e-14
-Iteration: 1800 | Loss: Tensor Float []  2.8422e-14
-Iteration: 1900 | Loss: Tensor Float []  1.4211e-14
-Iteration: 2000 | Loss: Tensor Float []  7.1054e-15
-Final Model:
-0, 0 => Tensor Float []  0.0000
+Iteration: 700 | Loss: Tensor Float []  5.0927e-2  
+Iteration: 800 | Loss: Tensor Float []  3.0997e-4  
+Iteration: 900 | Loss: Tensor Float []  2.9338e-5  
+Iteration: 1000 | Loss: Tensor Float []  1.0861e-5  
+Iteration: 1100 | Loss: Tensor Float []  1.3003e-7  
+Iteration: 1200 | Loss: Tensor Float []  4.5230e-10  
+Iteration: 1300 | Loss: Tensor Float []  1.4211e-12  
+Iteration: 1400 | Loss: Tensor Float []  1.2381e-12  
+Iteration: 1500 | Loss: Tensor Float []  6.3949e-14  
+Iteration: 1600 | Loss: Tensor Float []  1.7764e-14  
+Iteration: 1700 | Loss: Tensor Float []  3.1974e-14  
+Iteration: 1800 | Loss: Tensor Float []  2.8422e-14  
+Iteration: 1900 | Loss: Tensor Float []  1.4211e-14  
+Iteration: 2000 | Loss: Tensor Float []  7.1054e-15  
+Final Model:  
+0, 0 => Tensor Float []  0.0000  
 0, 1 => Tensor Float []  1.0000   
 1, 0 => Tensor Float []  1.0000   
-1, 1 => Tensor Float []  1.1921e-7
+1, 1 => Tensor Float []  1.1921e-7  
   
 Learning Curve:
 ![Learning Curve of tanh](mlpXor/tanh-xor.png)  
@@ -225,7 +225,7 @@ Learning Curve:
 ### The result of using sigmoid(rate = 0.3):  
 Iteration: 100 | Loss: Tensor Float []  0.1733   
 Iteration: 200 | Loss: Tensor Float []  0.2662   
-Iteration: 300 | Loss: Tensor Float []  2.5253e-2
+Iteration: 300 | Loss: Tensor Float []  2.5253e-2  
 Iteration: 400 | Loss: Tensor Float []  0.2077   
 Iteration: 500 | Loss: Tensor Float []  0.4701   
 Iteration: 600 | Loss: Tensor Float []  0.3069   
@@ -234,17 +234,17 @@ Iteration: 800 | Loss: Tensor Float []  0.2536
 Iteration: 900 | Loss: Tensor Float []  0.4921   
 Iteration: 1000 | Loss: Tensor Float []  0.1143   
 Iteration: 1100 | Loss: Tensor Float []  0.1744   
-Iteration: 1200 | Loss: Tensor Float []  1.2213e-4
-Iteration: 1300 | Loss: Tensor Float []  1.8360e-3
-Iteration: 1400 | Loss: Tensor Float []  5.2488e-4
-Iteration: 1500 | Loss: Tensor Float []  9.2643e-5
-Iteration: 1600 | Loss: Tensor Float []  1.1995e-6
-Iteration: 1700 | Loss: Tensor Float []  5.0101e-8
-Iteration: 1800 | Loss: Tensor Float []  5.3535e-9
-Iteration: 1900 | Loss: Tensor Float []  1.3848e-10
-Iteration: 2000 | Loss: Tensor Float []  1.8591e-11
-Final Model:
-0, 0 => Tensor Float []  3.2187e-6
+Iteration: 1200 | Loss: Tensor Float []  1.2213e-4  
+Iteration: 1300 | Loss: Tensor Float []  1.8360e-3  
+Iteration: 1400 | Loss: Tensor Float []  5.2488e-4  
+Iteration: 1500 | Loss: Tensor Float []  9.2643e-5  
+Iteration: 1600 | Loss: Tensor Float []  1.1995e-6  
+Iteration: 1700 | Loss: Tensor Float []  5.0101e-8  
+Iteration: 1800 | Loss: Tensor Float []  5.3535e-9  
+Iteration: 1900 | Loss: Tensor Float []  1.3848e-10  
+Iteration: 2000 | Loss: Tensor Float []  1.8591e-11  
+Final Model:  
+0, 0 => Tensor Float []  3.2187e-6  
 0, 1 => Tensor Float []  1.0000   
 1, 0 => Tensor Float []  1.0000   
 1, 1 => Tensor Float []  6.2585e-6  
@@ -263,17 +263,17 @@ Iteration: 700 | Loss: Tensor Float []  0.4717
 Iteration: 800 | Loss: Tensor Float []  0.3581   
 Iteration: 900 | Loss: Tensor Float []  0.1183   
 Iteration: 1000 | Loss: Tensor Float []  0.1379   
-Iteration: 1100 | Loss: Tensor Float []  7.1484e-2
+Iteration: 1100 | Loss: Tensor Float []  7.1484e-2  
 Iteration: 1200 | Loss: Tensor Float []  0.3039   
 Iteration: 1300 | Loss: Tensor Float []  0.2507   
 Iteration: 1400 | Loss: Tensor Float []  0.2792   
-Iteration: 1500 | Loss: Tensor Float []  2.2203e-2
+Iteration: 1500 | Loss: Tensor Float []  2.2203e-2  
 Iteration: 1600 | Loss: Tensor Float []  0.2495   
 Iteration: 1700 | Loss: Tensor Float []  0.3391   
 Iteration: 1800 | Loss: Tensor Float []  0.4932   
 Iteration: 1900 | Loss: Tensor Float []  0.3251   
 Iteration: 2000 | Loss: Tensor Float []  0.6642   
-Final Model:
+Final Model:  
 0, 0 => Tensor Float []  0.6740   
 0, 1 => Tensor Float []  0.6740   
 1, 0 => Tensor Float []  0.6740   
@@ -283,4 +283,4 @@ Learning Curve:
 ![Learning Curve of step](stepMlpXor/step-xor.png)
 
 ### analysis
-
+$$ \Delta w_i = - \alpha\frac{\partial MSE}{\partial w_i}
