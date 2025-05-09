@@ -16,6 +16,7 @@ final error[0.0,0.0,0.0,0.0]
 ### 2.b My explanation about the code
 
 Define the type of MLPSpec and MLP.
+  
 ```haskell:MlpXor.hs
 data MLPSpec = MLPSpec
   { feature_counts :: [Int],   -- 層のサイズ
@@ -31,6 +32,7 @@ data MLP = MLP
 
 MLPSpec and MLP correspond to spec and f of the typeclass Randomizable, respectively.  
 Sample is a function that randomly generates MLP based on information of MLPSpec.
+  
 ```haskell:MlpXor.hs
 -- How to make random MLP from MLPSpec
 instance Randomizable MLPSpec MLP where
@@ -47,6 +49,7 @@ instance Randomizable MLPSpec MLP where
 
 Apply functions of every layer to input. Functions to be applied to input are in the list, specifically in the following form.  
 [Σ(w*x+b), nonlinearity, Σ(w*x+b) ..]
+  
 ```haskell:MlpXor.hs
 mlp :: MLP -> Tensor -> Tensor
 mlp MLP {..} input = foldl' revApply input $ intersperse nonlinearity $ map linear layers
@@ -56,6 +59,7 @@ mlp MLP {..} input = foldl' revApply input $ intersperse nonlinearity $ map line
 
 batchSize is the size of a dataset when it is divided into several groups.  
 numIters is the number of iterations.
+  
 ```haskell:MlpXor.hs
 batchSize = 2
 
@@ -66,6 +70,7 @@ model params t = mlp params t
 ```
 
 Initialize the MLP by specifying the layer size and activation function.
+  
 ```haskell:MlpXor.hs
 main :: IO ()
 main = do
@@ -79,6 +84,7 @@ main = do
 ```
 
 Update training data, calculate MSE, and update weights and bias at each iteration of learning.
+  
 ```haskell:MlpXor.hs
   trained <- foldLoop init numIters $ \state i -> do
     -- generate learning data
@@ -94,6 +100,7 @@ Update training data, calculate MSE, and update weights and bias at each iterati
 ```
 
 Output the results and function to compute the correct output (y)
+  
 ```haskell:MlpXor.hs
   putStrLn "Final Model:"
   putStrLn $ "0, 0 => " ++ (show $ squeezeAll $ model trained (asTensor [0, 0 :: Float]))
@@ -111,6 +118,7 @@ Output the results and function to compute the correct output (y)
 ```
 
 Here is the definition of the function I referred to.
+  
 ```haskell:NN.hs
 type Parameter = IndependentTensor
 
