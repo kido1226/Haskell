@@ -42,7 +42,7 @@ ghc-options:
 executables:
   session3-linear-regression:
     main: LinearRegression.hs
-    source-dirs: session3/linearRegression
+    source-dirs: Session3/linearRegression
     dependencies:
     - hasktorch
     - hasktorch-tools
@@ -50,7 +50,7 @@ executables:
 
   session3-graduate-admission-linear:
     main: GraduateAdmissionLinear.hs
-    source-dirs: session3/graduateAdmissionLinear
+    source-dirs: Session3/graduateAdmissionLinear
     dependencies:
     - hasktorch
     - hasktorch-tools
@@ -58,6 +58,38 @@ executables:
     - bytestring
     - vector
     - cassava
+
+  session4-perseptron-and-gate:
+    main: PerceptronAndGate.hs
+    source-dirs: Session4/perceptronAndgate
+    dependencies:
+    - hasktorch
+    - hasktorch-tools
+    - nlp-tools
+
+  session4-mlpxor:
+    main: MlpXor.hs
+    source-dirs: Session4/mlpXor
+    dependencies:
+    - hasktorch
+    - hasktorch-tools
+    - nlp-tools
+
+  session4-step-mlpxor:
+    main: StepMlpXor.hs
+    source-dirs: Session4/stepMlpXor
+    dependencies:
+    - hasktorch
+    - hasktorch-tools
+    - nlp-tools
+
+  session4-sigmoid-mlpxor:
+    main: SigmoidMlpXor.hs
+    source-dirs: Session4/sigmoidMlpXor
+    dependencies:
+    - hasktorch
+    - hasktorch-tools
+    - nlp-tools
 
 tests:
   haskell-test:
