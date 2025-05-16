@@ -91,6 +91,18 @@ executables:
     - hasktorch-tools
     - nlp-tools
 
+  session5-admit:
+    main: Admit.hs
+    source-dirs: Session5/admit
+    other-modules: Evaluation
+    dependencies:
+    - hasktorch
+    - hasktorch-tools
+    - nlp-tools
+    - bytestring
+    - vector
+    - cassava
+
 tests:
   haskell-test:
     main:                Spec.hs

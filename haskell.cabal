@@ -122,6 +122,23 @@ executable session4-step-mlpxor
     , nlp-tools
   default-language: Haskell2010
 
+executable session5-admit
+  main-is: Admit.hs
+  other-modules:
+      Evaluation
+  hs-source-dirs:
+      Session5/admit
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , cassava
+    , hasktorch
+    , hasktorch-tools
+    , nlp-tools
+    , vector
+  default-language: Haskell2010
+
 test-suite haskell-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
