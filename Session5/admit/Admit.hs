@@ -136,7 +136,7 @@ main = do
     let input = xs
     -- calculate the MSE
     let (y, y') = (ys', squeezeAll $ model state input)
-        loss = mseLoss y y'
+        loss = klDiv y y'
         loss' = (asValue loss :: Float)
     when (i `mod` 100 == 0) $ do
       putStrLn $ "Iteration: " ++ show i ++ " | Loss: " ++ show loss
@@ -144,7 +144,7 @@ main = do
     (newState, _) <- runStep state optimizer loss rate
     return (newState, (loss' : losses))
 
-  drawLearningCurve "admit/admit.png" "Learning Curve" [("",reverse losses)]
+  drawLearningCurve "admit/admit_kl.png" "Learning Curve" [("",reverse losses)]
 
 
 
