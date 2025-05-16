@@ -101,6 +101,29 @@ Learning Curve:
 
 
   Other loss functions such as negative log entropy(nllLoss') and KL divergence(klDiv) were not working well. I'll try them later.
+```
+nllLoss' target t = unsafePerformIO $ cast5 ATen.nll_loss_tttll t target weight ReduceMean (-100 :: Int)
+  where
+    nClass = shape t !! 1 -- TODO: nicer runtime error if input dimensions don't conform
+    weight = toDType (dtype t) $ _toDevice (device target) $ ones' [nClass]
 
+-- | Returns cosine similarity between x1 and x2, computed along dim.
+```
+```
+klDiv ::
+  Reduction ->
+  -- | self
+  Tensor ->
+  -- | target
+  Tensor ->
+  -- | output
+  Tensor
+klDiv reduction self target = unsafePerformIO $ cast3 ATen.kl_div_ttl self target reduction
+
+-- | Creates a criterion that uses a squared term if the absolute element-wise
+--  error falls below 1 and an L1 term otherwise. It is less sensitive to
+-- outliers than the MSELoss and in some cases prevents exploding gradients
+-- (e.g. see Fast R-CNN paper by Ross Girshick). Also known as the Huber loss.
+```
 
   I tried training while varying the activation function(sigmoid, tanh), loss function(mseLoss, cross entropy), and learning rate(0.1~0.0001), but in all cases, all predicted values converged to nearly the same value.
