@@ -2,7 +2,7 @@
 ## 3.a Analysis of metrics
 my result and evaluation  
 ・activation function: sigmoid  
-・loss function: mseLoss
+・loss function: mseLoss  
 ・learning rate: 0.01
 ```
 Iteration: 100 | Loss: Tensor Float []  6.7851e-2
@@ -44,7 +44,7 @@ The loss converged to 0.02 and all output values were almost the same. I used im
 ### Cross entropy
 my result and evaluation  
 ・activation function: sigmoid  
-・loss function: binaryCrossEntropyLoss'
+・loss function: binaryCrossEntropyLoss'  
 ・learning rate: 0.01
 ```
 Iteration: 100 | Loss: Tensor Float []  0.5890   
