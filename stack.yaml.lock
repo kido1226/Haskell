@@ -142,6 +142,13 @@ packages:
       size: 249
   original:
     hackage: jsonl-0.2.0.0@sha256:35f8a3816f0b93830008709a8e64c0c69b9bc632a92c54b3be3345bfccba4a5c,1465
+- completed:
+    hackage: random-shuffle-0.0.4@sha256:d0b9783c30208d1ce05caa05139fb00372802edb6c678b73d61b5eb4eebb3aba,818
+    pantry-tree:
+      sha256: e6e1c894e726443bc7165618de6745812610e70f0df22dbe5c130bafee2c507b
+      size: 226
+  original:
+    hackage: random-shuffle-0.0.4
 snapshots:
 - completed:
     sha256: 5a59b2a405b3aba3c00188453be172b85893cab8ebc352b1ef58b0eae5d248a2

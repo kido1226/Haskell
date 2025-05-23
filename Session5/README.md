@@ -127,3 +127,5 @@ klDiv reduction self target = unsafePerformIO $ cast3 ATen.kl_div_ttl self targe
 ```
 
   I tried training while varying the activation function(sigmoid, tanh), loss function(mseLoss, cross entropy), and learning rate(0.1~0.0001), but in all cases, all predicted values converged to nearly the same value.
+
+  todo:change optimizer(batch?)

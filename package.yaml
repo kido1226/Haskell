@@ -103,6 +103,32 @@ executables:
     - vector
     - cassava
 
+  session6-word2vec:
+    main: Word2vec.hs
+    source-dirs: Session6/word2vec
+    dependencies:
+    - hasktorch
+    - hasktorch-tools
+    - nlp-tools
+    - bytestring
+    - vector
+    - cassava
+    - utf8-string
+    - containers
+    - random-shuffle
+
+  session6-eval-words:
+    main: evalWords.hs
+    source-dirs: Session6/evalWords
+    dependencies:
+    - hasktorch
+    - hasktorch-tools
+    - nlp-tools
+    - bytestring
+    - vector
+    - cassava
+    - utf8-string
+
 tests:
   haskell-test:
     main:                Spec.hs
