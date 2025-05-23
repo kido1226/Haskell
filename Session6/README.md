@@ -60,6 +60,7 @@ I also tried to train on all the data, but gave up because it took nearly 10 hou
 ## 3. Evaluate the trained model using STS
 last 5 evaluation results  
 ```
+actual similarity is 1
 estimated similarity is 3
 actual similarity is 5
 estimated similarity is 5
