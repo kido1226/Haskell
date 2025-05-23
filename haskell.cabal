@@ -152,6 +152,7 @@ executable session6-eval-words
       base >=4.7 && <5
     , bytestring
     , cassava
+    , containers
     , hasktorch
     , hasktorch-tools
     , nlp-tools

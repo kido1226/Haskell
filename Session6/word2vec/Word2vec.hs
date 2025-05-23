@@ -99,7 +99,7 @@ preprocess texts = map (B.split (head $ encode " ")) textLines
 wordToIndexFactory ::
   [B.ByteString] -> -- wordlist
   (B.ByteString -> Int) -- function converting bytestring to index (unknown word: 0)
-wordToIndexFactory wordlst wrd = M.findWithDefault (length wordlst) wrd (M.fromList (zip wordlst [0 ..]))
+wordToIndexFactory wordlst wrd = M.findWithDefault (length wordlst) wrd (M.fromList (zip wordlst [0 .. length wordlst]))
 
 toyEmbedding ::
   EmbeddingSpec ->
@@ -151,7 +151,7 @@ main = do
   print wordlst
 
   -- Create initial embedding (wordDim × wordNum)
-  let embsddingSpec = EmbeddingSpec {wordNum = length wordlst, wordDim = 9}
+  let embsddingSpec = EmbeddingSpec {wordNum = length wordlst + 1, wordDim = 9}
   wordEmb <- makeIndependent $ toyEmbedding embsddingSpec
   let emb = Embedding {wordEmbedding = wordEmb}
 
@@ -177,7 +177,7 @@ main = do
   --     return (newState, (loss' : losses))
 
   shuffledBatches <- shuffleM batches
-  let miniBatches = chunks 10 shuffledBatches
+  let miniBatches = chunks 100 shuffledBatches
   (trainedEmb, allLosses) <- foldLoop (emb, []) numIters $ \(state, losses) i -> do
     (state', epochLosses) <- foldLoop (state, []) ((length miniBatches) - 1) $ \(s, ls) batchIdx -> do
       let miniBatch = miniBatches !! batchIdx
@@ -201,7 +201,7 @@ main = do
     let meanLoss = (sum epochLosses) / fromIntegral (length epochLosses)
     return (state', meanLoss : losses)
 
-  drawLearningCurve "word2vec/word2vec.png" "Learning Curve" [("", reverse allLosses)]
+  drawLearningCurve "word2vec/word2vec_b100.png" "Learning Curve" [("", reverse allLosses)]
 
   -- Save params to use trained parameter in the next session
   -- trainedEmb :: Embedding

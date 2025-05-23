@@ -128,6 +128,7 @@ executables:
     - vector
     - cassava
     - utf8-string
+    - containers
 
 tests:
   haskell-test:
