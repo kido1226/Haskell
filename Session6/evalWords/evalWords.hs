@@ -101,6 +101,8 @@ mapCosineToScore sim
   | sim < 0.8 = 4
   | otherwise = 5
 
+num = 0
+
 main :: IO ()
 main = do
   tests <- B.readFile testFilePath
@@ -129,3 +131,5 @@ main = do
         putStrLn $ "estimated similarity is " ++ show score
     )
     testLines
+
+  return ()

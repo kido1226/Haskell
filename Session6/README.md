@@ -8,7 +8,7 @@ Since learning all batches would be time consuming, I implemented a mini-batch l
 
 epoch = 100  
 learning rate = 0.1  
-Sample.txt includes 100 lines and it took about 25 minutes to calculate.  
+Sample.txt includes 100 lines and 4189 words it took about 25 minutes to calculate.  
 result:  
 ```
 Epoch: 10, Batch: 100 | Loss: 6.702643
@@ -58,7 +58,7 @@ learning curve:
 I also tried to train on all the data, but gave up because it took nearly 10 hours to load file.  
   
 ## 3. Evaluate the trained model using STS
-last 5 evaluation result  
+last 5 evaluation results  
 ```
 estimated similarity is 3
 actual similarity is 5
