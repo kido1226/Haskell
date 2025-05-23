@@ -35,7 +35,7 @@ data Embedding = Embedding
 wordToIndexFactory ::
   [B.ByteString] -> -- wordlist
   (B.ByteString -> Int) -- function converting bytestring to index (unknown word: 0)
-wordToIndexFactory wordlst wrd = M.findWithDefault 0 wrd (M.fromList (zip wordlst [0 .. length wordlst - 1]))
+wordToIndexFactory wordlst wrd = M.findWithDefault 0 wrd (M.fromList (zip wordlst [0 .. length wordlst]))
 
 -- 空白文字で分割して単語のByteStringリストを返す関数（記号除去付き）
 tokenizeSentence :: BC.ByteString -> [BC.ByteString]
