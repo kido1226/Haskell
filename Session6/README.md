@@ -58,9 +58,7 @@ learning curve:
 I also tried to train on all the data, but gave up because it took nearly 10 hours to load file.  
   
 ## 3. Evaluate the trained model using STS
-It did not work because the form of index and embedding were different and out-of-range access would occur, but when I created an index for a word that did not appear in the train, I could not implement it because I did not know how to align them because the form was always different.
-
-last 5 evaluation  
+last 5 evaluation result  
 ```
 estimated similarity is 3
 actual similarity is 5
