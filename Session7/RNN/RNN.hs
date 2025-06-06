@@ -172,7 +172,9 @@ main = do
     let embedded = embedding' (toDependent $ wordEmbedding emb) inputTensor
     let h0 = toDependent (h0s initialStates)
     let (rnnOut, _) = RNN.rnnLayers rnn Tanh Nothing h0 embedded
+    print rnnOut
     let meanOut = meanDim (Dim 1) KeepDim Float rnnOut
+    print $ shape meanOut
     let pred = mlpForward mlp meanOut
 
     -- loss
