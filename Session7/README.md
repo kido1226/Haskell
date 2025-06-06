@@ -1,5 +1,5 @@
-## build a RNN model
-# definition of model
+# build a RNN model
+## definition of model
 ```
 data Model = Model
   { emb :: Embedding,
@@ -9,7 +9,7 @@ data Model = Model
   }
   deriving (Generic, Parameterized)
 ```
-# training cord
+## training cord
 ```
   (trainedModel, losses) <- foldLoop (initModel, []) numIters $ \(state, losses) i -> do
     -- forward
