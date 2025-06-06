@@ -99,7 +99,7 @@ preprocess texts = map (B.split (head $ encode " ")) textLines
 wordToIndexFactory ::
   [B.ByteString] -> -- wordlist
   (B.ByteString -> Int) -- function converting bytestring to index (unknown word: 0)
-wordToIndexFactory wordlst wrd = M.findWithDefault (length wordlst) wrd (M.fromList (zip wordlst [0 ..]))
+wordToIndexFactory wordlst wrd = M.findWithDefault (length wordlst) wrd (M.fromList (zip wordlst [0 .. length wordlst]))
 
 toyEmbedding ::
   EmbeddingSpec ->
@@ -148,38 +148,22 @@ main = do
       wordlst = nub $ concat wordLines
       wordToIndex = wordToIndexFactory wordlst
       indexedData = map (map wordToIndex) wordLines
-  print wordlst
+  print $ length wordlst
 
   -- Create initial embedding (wordDim × wordNum)
-  let embsddingSpec = EmbeddingSpec {wordNum = length wordlst, wordDim = 9}
+  let embsddingSpec = EmbeddingSpec {wordNum = length wordlst + 1, wordDim = 9}
   wordEmb <- makeIndependent $ toyEmbedding embsddingSpec
   let emb = Embedding {wordEmbedding = wordEmb}
 
   let batches = makeBatches 1 indexedData
   print $ length batches
 
-  --   -- TODO: Train model. After training, we can obtain the trained patameter, embeddings. This is the trained embedding.
-  --   let (contexts, targets) = unzip batches
-  --       contextsTensor = asTensor (contexts :: [[Int]])
-  --       targetsTensor = asTensor (targets :: [Int])
-  --   -- foldLoop :: a -> Int -> (a -> Int -> IO a) -> IO a
-  --   (trainedEmb, losses) <- foldLoop (emb, []) numIters $ \(state, losses) i -> do
-  --     let contextVecs = embedding' (toDependent $ wordEmbedding state) contextsTensor -- [batch_size, context_size, emb_dim]
-  --         avgVecs = meanDim (Dim 1) RemoveDim Float contextVecs -- [batch_size, embed_dim]
-  --         scores = matmul avgVecs (transpose2D (toDependent $ wordEmbedding state)) -- [batch_size, vocab_size]
-  --         probs = logSoftmax (Dim 1) scores
-  --         loss = nllLoss' targetsTensor probs
-  --     print loss
-  --     let loss' = (asValue loss :: Float)
-  --     when (i `mod` 10 == 0) $ do
-  --       putStrLn $ "Iteration: " ++ show i ++ " | Loss: " ++ show loss
-  --     (newState, _) <- runStep state optimizer loss rate
-  --     return (newState, (loss' : losses))
-
-  shuffledBatches <- shuffleM batches
-  let miniBatches = chunks 10 shuffledBatches
+  --   shuffledBatches <- shuffleM batches
+  let miniBatches = chunks 100 batches
+  print "a"
   (trainedEmb, allLosses) <- foldLoop (emb, []) numIters $ \(state, losses) i -> do
     (state', epochLosses) <- foldLoop (state, []) ((length miniBatches) - 1) $ \(s, ls) batchIdx -> do
+      print $ show i ++ "-" ++ show batchIdx
       let miniBatch = miniBatches !! batchIdx
           (contexts, targets) = unzip miniBatch
           contextsTensor = asTensor (contexts :: [[Int]])
@@ -191,7 +175,7 @@ main = do
           probs = logSoftmax (Dim 1) scores
           loss = nllLoss' targetsTensor probs
           loss' = asValue loss :: Float
-      when (i `mod` 10 == 0 && batchIdx `mod` 100 == 0) $
+      when (i `mod` 10 == 0 && batchIdx `mod` 10 == 0) $
         putStrLn $
           "Epoch: " ++ show i ++ ", Batch: " ++ show batchIdx ++ " | Loss: " ++ show loss'
 
@@ -201,7 +185,7 @@ main = do
     let meanLoss = (sum epochLosses) / fromIntegral (length epochLosses)
     return (state', meanLoss : losses)
 
-  drawLearningCurve "word2vec/word2vec.png" "Learning Curve" [("", reverse allLosses)]
+  drawLearningCurve "word2vec/word2vec_b100.png" "Learning Curve" [("", reverse allLosses)]
 
   -- Save params to use trained parameter in the next session
   -- trainedEmb :: Embedding

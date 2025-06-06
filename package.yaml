@@ -128,6 +128,35 @@ executables:
     - vector
     - cassava
     - utf8-string
+    - containers
+
+  session7-rnn:
+    main: RNN.hs
+    source-dirs: Session7/RNN
+    dependencies:
+    - hasktorch
+    - hasktorch-tools
+    - nlp-tools
+    - bytestring
+    - vector
+    - cassava
+    - utf8-string
+    - containers
+    - aeson
+
+  session7-jsonl:
+    main: JsonlParser.hs
+    source-dirs: Session7/RNN
+    dependencies:
+    - hasktorch
+    - hasktorch-tools
+    - nlp-tools
+    - bytestring
+    - vector
+    - cassava
+    - utf8-string
+    - containers
+    - aeson
 
 tests:
   haskell-test:
