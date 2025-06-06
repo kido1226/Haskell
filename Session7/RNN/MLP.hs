@@ -36,14 +36,7 @@ instance Randomizable MLPSpec MLP where
         where
           shift (a, b) c = (b, c)
 
--- mlpForward :: MLP -> Tensor -> Tensor
--- mlpForward MLP {..} input = foldl' revApply input $ intersperse nonlinearity $ map linear layers
---   where
---     revApply x f = f x
-
 mlpForward :: MLP -> Tensor -> Tensor
-mlpForward MLP {..} input = foldl' (\x f -> f x) input funcs
+mlpForward MLP {..} input = foldl' revApply input $ intersperse nonlinearity $ map linear layers
   where
-    funcs =
-      concatMap (\layer -> [linear layer, nonlinearity]) (init layers)
-        ++ [linear (last layers)] -- 最後の層は活性関数なし
+    revApply x f = f x
